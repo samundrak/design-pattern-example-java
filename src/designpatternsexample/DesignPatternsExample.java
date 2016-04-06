@@ -5,6 +5,10 @@
  */
 package designpatternsexample;
 
+import designpatternsexample.builder.OldRobotBuilder;
+import designpatternsexample.builder.Robot;
+import designpatternsexample.builder.RobotBuilder;
+import designpatternsexample.builder.RobotEngineer;
 import designpatternsexample.factory.VendorMachine;
 import designpatternsexample.observer.StockGrabber;
 import designpatternsexample.observer.StockObserver;
@@ -22,7 +26,8 @@ public class DesignPatternsExample {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        factoryDesignPattern();
+//        factoryDesignPattern();
+        builderDesignPattern();
     }
 
     static void stategyDesignPattern() {
@@ -43,10 +48,22 @@ public class DesignPatternsExample {
 
     }
 
-    static void factoryDesignPattern(){
-//        Factory pattern is one of most used design pattern in Java. This type of design pattern comes under creational pattern as this pattern provides one of the best ways to create an object.
-
-//In Factory pattern, we create object without exposing the creation logic to the client and refer to newly created object using a common interface.
+    static void factoryDesignPattern() {
+        //Factory Design Pattern
         new VendorMachine().start();
+    }
+
+    static void builderDesignPattern() {
+        RobotBuilder oldStyleRobot = new OldRobotBuilder();
+        RobotEngineer robotEngineer = new RobotEngineer(oldStyleRobot);
+
+        robotEngineer.makeRobot();
+
+        Robot firstRobot = robotEngineer.getRobot();
+        System.out.println("Robot is built");
+        System.out.println("Robot Head Type" + firstRobot.getRobotHead());
+        System.out.println("Robot Torso Type" + firstRobot.getRobotTorso());
+        System.out.println("Robot Arms Type" + firstRobot.getRobotArms());
+        System.out.println("Robot Legs Type" + firstRobot.getRobotLegs());
     }
 }
