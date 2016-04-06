@@ -30,3 +30,9 @@ Code may looks same but its not copy paste
     of creating objects without having to specify the exact class of the object that will be created. This is done by creating objects
     by calling a factory method—either specified in an interface and implemented by child classes, or implemented in a base class and
     optionally overridden by derived classes—rather than by calling a constructor. - Wikipedia
+
+#Builder Design Pattern
+  Builder pattern builds a complex object using simple objects and using a step by step approach. This type of design pattern comes
+  under creational pattern as this pattern provides one of the best ways to create an object.
+  
+  A Builder class builds the final object step by step. This builder is independent of other objects.
